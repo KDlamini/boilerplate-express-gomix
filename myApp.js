@@ -34,29 +34,16 @@ app.get('/json', (req, res) => {
     
 });
 
+function getCurrentTime() {
+    return new Date().toString();
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+app.get('/now', (req, res, next) => {
+    req.time = getCurrentTime();
+    next();
+}, (req, res) => {
+    res.json({time: req.time})
+});
 
 
 
